@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            border: #000000 1px solid;
+            height: 200px;
+            line-height: 200px;
+        }
+        #p1 {
+            text-align: center;
+        }
+        #p2 {
+            /*line-height: 100px; */
+            text-align: right;
+        }
+        #p3 {
+            text-align: left;
+        }
+        #p4 {
+            text-align: justify;
+        }
+        .fontSize {
+            font-size: 30px;
+            font-style: italic;
+            font-weight: 400; /*400: 보통, 700: 굵게*/
+            font-variant: small-caps; /*소문자를 작은 대문자로 표기*/
+            letter-spacing: 0.2;
+        }
+        /*
+        여러 속성을 하나로 묶어서 표현
+        font : font-style font-variant font-weight font-size/line-height font-family
+        */
+        #p1 {
+            font : normal normal 700 30px/200px '굴림';
+            text-decoration: line-through;
+        }
+        div {
+            width: 300px;
+            border: #000 1px solid;
+            overflow: hidden; /*영역보다 넘치는 경우 숨김*/
+            white-space: nowrap; /*내용길어져도 줄바꿈안되게*/
+        }
+        .over1 {
+            text-overflow: clip; /*기본값 : 넘치는 텍스트 숨김*/
+        }
+        .over2 {
+            text-overflow: ellipsis; /*넘치면 ...으로 표시*/
+        }
+        .baseballTeam {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+        }
+        table {
+            caption-side: bottom;
+            border: 1px solid black;
+        }
+        td, th {
+            border: 1px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>상품 구성</h2>
+    <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+            <col style="background-color: #eee;">
+            <col>
+            <col style="width:150px;">
+            <col style="width:150px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td colspan="2">품절</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <ol class="baseballTeam">
+        <li>LG트윈스</li>
+        <li>대한화이글스</li>
+        <li>삼성라이온스</li>
+    </ul>
+    <div class="over1">안녕하세요 저는 홍길동입니다. 만나서 반가워</div>
+    <div class="over2">안녕하세요 저는 홍길동입니다. 만나서 반가습니다~~~~~~~~~~</div>
+    <div class="fontSize">안녕하세요 This is my room</div>
+    <p id="p1">안녕하세요</p>
+    <p id="p2">안녕하세요</p>
+    <p id="p3">안녕하세요</p>
+    <p id="p4">안녕하세요 저는 홍딜동입니다. 반갑습니다.</p>
+</body>
+</html>
