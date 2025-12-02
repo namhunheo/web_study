@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery {
+            width:700px;
+            margin: 20px auto;
+            display: grid;
+            gap: 5px;
+            grid-template-areas: 
+                "photo1 photo1 photo2"
+                "photo1 photo1 photo3"
+                "photo4 photo5 photo6";
+        }  
+        .gallery > img {
+            width: 100%;  
+        }  
+        .photo1 {grid-area: photo1}
+        .photo2 {grid-area: photo2}
+        .photo3 {grid-area: photo3}
+        .photo4 {grid-area: photo4}
+        .photo5 {grid-area: photo5}
+        .photo6 {grid-area: photo6}
+    </style>        
+            
+        
+</head>
+<body>
+    <div class="gallery">
+        <img class ="photo1 " src="img/bg-img1.png">
+        <img class ="photo2 " src="img/bg-img.png">
+        <img class ="photo3 " src="img/cat1.jpg">
+        <img class ="photo4 " src="img/cat2.jpg">
+        <img class ="photo5 " src="img/cat3.jpg">
+        <img class ="photo6 " src="img/logo.png">
+</body>
+</html>
