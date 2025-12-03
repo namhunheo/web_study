@@ -1,0 +1,104 @@
+<script>
+    let now = new Date();
+    document.write("현재 시간은 " + now.toLocaleString());
+
+    // 객체 생성
+    let car = {
+        company: "현대",
+        model: "그랜저",
+        color: "검정",
+        displacenet: 3000,  //배기량
+        start: function() {
+            console.log("부릉부릉");
+        },
+        move : function(){
+            console.log("차가 움직입니다.");
+        }
+    }
+    console.log(typeof(car)); //object
+    console.log(car);
+    // 속성 사용
+    console.log(car.model);
+    console.log(car["company"]);
+    car.price = 5000; //속성 추가
+    console.log(car);
+    // 메서드 호출
+    car.start();
+    car.move();
+
+    //생성자 함수
+    function Calculator (a, b){
+        var n1 = a;
+        var n2 = b;
+
+        this.n3 = a; //속성
+        // 기능
+        this.add = function(){
+            return n1 + n2;
+        }
+
+    }
+    
+    // 생성자 함수를 인스턴스 객체로 생성
+    let cal = new Calculator(2, 3);
+    console.log(cal); // n1 은 속성이 아님
+    console.log(cal.n3);
+    console.log(cal.add());
+
+    //new 미사용
+    let cal2 = Calculator(4, 5);
+    // console.log(cal2.n3); // 사용불가
+
+    //클래스
+    class Calculator2 {
+        //생성자
+        constructor(a, b){
+            //필드에 초시화]
+            this.n1 = a;
+            this.n2 = b;
+        }
+        //메서드
+        add(){
+            return this.n1 + this.n2;
+        }
+    }
+    let c = new Calculator2(2,3);
+    let c2 = new Calculator2(5,7);
+    console.log(c.add());
+
+    let arr = [1,2,3,4,5];
+    // 콜백함수 사용
+    arr.forEach(function(v, i){
+        console.log(`${i} 번째 값: ${v}`);
+    });
+    // for문 사용
+    for(let i=0; i< arr.length; i++){
+        console.log(`${i} 번째 값: ${arr[i]}`);
+    }
+
+    // String 객체
+    let str = 'hello';
+    // 길이
+    console.log(str.length);
+    // 치환
+    console.log(str.replace('e', 'a')); //첫번째 e만 a로 변경
+    // 위치(앞에서부터) -> 포함여부(>=0)
+    console.log(str.indexOf('l')); //hello의 2번째 있으니까 2 출력
+    // 특정 문자열 기준으로 분할하기
+    console.log(str.split('e')); //한글자씩 분할해서 배열로 반환
+    // 자르기
+    console.log(str.substring(2,3)); // 2번 인덱스부터 3번 인덱스 전까지
+    // 인덱싱
+    console.log(str[1]);
+
+
+    // 두 날짜 일수 구하기
+    let xmas = new Date(2025, 11, 25); //12월은 11
+    let diff = xmas.getTime() - now.getTime(); //밀리초 단위
+    diff = Math.ceil(diff / (1000 * 60 * 60 * 24)); //일수로 변환
+    console.log(diff);
+
+    // 팝업
+    window.open('operation.html', 'operation', 'width=400, height=300,left=100, top=100');
+
+</script>

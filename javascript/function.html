@@ -25,4 +25,88 @@
         console.log("ddd");
     };
     ddd();
+
+    // 파라미터, 매개변수
+    function add(n1, n2) {
+        let sum = n1 + n2;
+        console.log(sum);
+    }
+    add(1, 2);
+    add("안녕", "하세요");
+
+    //매개변수 기본값
+    function multiple(a, b=5, c=10) {
+        return a + b + c;
+    }
+    console.log(multiple(1)); //1 + 5 + 10
+
+    // 가변인자
+    function multiple2() {
+        console.log(arguments);
+    }
+    multiple2(1, 2, 3, 4, 5);
+
+    //콜백(callback) -> 함수의 매개변수로 함수를 전달
+    function calculator(func, x, y) { // func라는 매개변수로 함수를 전달
+        let result = func(x, y); // 함수를 실행
+        return result;
+    }
+    console.log(calculator(add, 10, 20)); // 30 //일반함수를 콜백으로
+    console.log(calculator(function(x, y) { // 익명함수를 콜백으로
+        return x * y;
+    }, 10, 20)); // 200
+    console.log(calculator((x, y) => x*y, 10, 5)); // 50 //화살표함수를 콜백으로
+
+    // return
+    // 1. 값을 호출한 곳으로 돌려주는 역할
+    // 2. 함수의 실행을 종료시키는 역할
+    function eee() {
+        console.log(1);
+        return; // 함수 종료, 실행 중지
+        console.log(2); // 이 코드는 실행되지 않음
+    } eee();
+
+    // 내부함수 - 함수 안에 정의된 함수
+    function eat() {
+        console.log("점심을 먹는다");
+    }
+    function home() {
+        function eat() {
+            console.log("아침을 먹는다");
+        }
+        eat();
+    }
+    eat();
+    home();
+
+    // 클로저(closure)
+    // 독립적인 변수를 가지고 있는 함수
+    // 내부함수를 이용해서 별도의 스코프 존재
+    // 외부에서 접근할 수 없는 은닉된 변수를 가질 수 있음
+    function test() {
+        let text = "hello"; // 지역변수
+    }
+    test();
+    // text 지역변수는 함수 안에서만 사용, 외부에서는 사용 불가
+    // 오류 발생, text는 test 함수의 지역변수이므로 접근 불가
+    //console.log(text);
+    function test2() {
+        let text = "hello"; // 지역변수
+        return function() {
+            return; // 내부함수
+        }
+    }
+    let t2 = test2();
+    console.log(t2());
+
+    function test3() {
+        let text = '안녕'+name;
+        return function() {
+            return text;
+        }
+    }
+    let t3 = test3('홍길동');
+    let t4 = test3('이순신');
+    console.log(t3()); // 안녕홍길동
+    console.log(t4()); // 안녕이순신
 </script>
