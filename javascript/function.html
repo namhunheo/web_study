@@ -1,0 +1,28 @@
+<script>
+    aaa(); //함수가 호이스팅(끌어올려짐) 된다.
+
+    //일반적인 함수
+    // 함수 선언(정의)
+    function aaa() {
+        console.log("aaa");
+    }
+    // 함수 호출(실행)
+    aaa();
+
+    // 이름이 없는 함수(익명함수)
+    let bbb = function() {
+        console.log("bbb");
+    };
+    bbb();
+
+    // 즉시실행함수
+    (function ccc() {
+        console.log("ccc");
+    })(); //호출 연산자 ()
+
+    // 화살표 함수(Arrow Function)
+    let ddd = () => {
+        console.log("ddd");
+    };
+    ddd();
+</script>
