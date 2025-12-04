@@ -1,0 +1,66 @@
+<script>
+    // 템플릿 문자열
+    // 전개 연산
+    let arr = [1, 2, 3];
+    let arr2 = arr; //같은 주소
+    console.log(arr == arr2);
+    let arr3 = [...arr]; //새로운 배열 [1,2,3]
+    console.log(arr == arr3); //다른주소
+
+    // arr.push(4);
+    // console.log(arr); // [1,2,3,4]
+    let arr4 = [...arr, 4]; //새로운 배열 [1,2,3,4]
+    console.log(arr4);
+
+    let obj = {a: 1, b: 2};
+    // obj.c = 3;
+    let obj2 = {...obj, c: 3}; // 새로운 주소
+    console.log(obj); // {a:1, b:2, c:3}
+    //값이 변경
+    // obj2.b = 4;
+    obj2 = {...obj2, b: 4}; //새로운 주소
+    console.log(obj2); // {a:1, b:4, c:3}
+
+    //객체 확장 표현식
+    // obj.name = '홍길동';
+    // obj['name'] = '홍길동';
+    let propertyName = 'name';
+    // obj[propertyName] = '홍길동';
+    // obj.propertyName = '홍길동'; // 이건 안됨
+    console.log(obj); // {a:1, b:2, name:'홍길동'}
+
+    //새로운 객체 생성
+    let obj3 = {
+        a : 1,
+        b : 2,
+        [propertyName] : '홍길동' // propertyName 이라는 key가 생성
+    };
+    console.log(obj3); // {a:1, b:2, name:'홍길동'}
+
+    //구조분해할당
+    let arr5 = [1,2];
+    let a = arr5[0];
+    let b = arr5[1];
+    console.log(a, b); // 1 2
+    let [a1, b1] = arr5; //구조분해할당
+    console.log(a1, b1); // 1 2
+
+    let member = {
+        name : '홍길동',
+        age : 20,
+        email : 'hong@gmail.com'
+    };
+    let {name, age, email} = member; //구조분해할당 (속성명)
+    console.log(name, age, email); // '홍길동' 20 '
+
+    //클래스
+    //화살표 함수
+</script>
+<!-- <script src="es6.js"></script> -->
+<script type="module">
+    import xyz, { func1, func2} from './es6.js';
+    func1();
+    func2();
+    xyz();
+    // func3();
+</script>

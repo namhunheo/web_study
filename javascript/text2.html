@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading">에티오피아</h1>
+        <img src="img/cat1.jpg" id="cat">
+    </div>
+    <script>
+        let heading = document.querySelector('#heading');
+        let cat = document.querySelector('#cat');
+        heading.onclilck = ()=>heading.innerHTML = '추천!'
+        // 이미지1 -> 이미지2, 이미지2 -> 이미지1
+        let n = 2;
+        // cat.onclick = (e)=>{
+        cat.onclick = function(e){
+            console.log(e); // 이벤트 객체
+            console.log(this); // 익명함수 : 이벤트가 일어난 객체, 화살표함수 : window 객체
+            cat.src=`img/cat${n}.jpg`;
+            n++;
+            if (n > 5) n = 1;
+        };
+    </script>
+</body>
+</html>

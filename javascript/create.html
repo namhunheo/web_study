@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #subject {
+            width:300px;
+            height:25px;
+        }
+        #btn {
+            height : 30px;
+            width:60px;
+            background-color: black;
+            color:white; 
+        }
+    </style>
+    <script>
+        function newRegister() {
+            const newItem = document.createElement("li");
+            const subject = document.querySelector("#subject");
+            const newText = document.createTextNode(subject.value);
+
+            newItem.appendChild(newText);
+
+            const itemList = document.querySelector('#itemList');
+            itemList.appendChild(newItem);
+            subject.value = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('#btn');
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                newRegister();
+            });
+            document.querySelector('#subject').addEventListener('keypress', function(e) {
+                //e.preventDefault();
+                console.log(e.keyCode);
+                if (e.keyCode == 13) {
+                    newRegister();
+                }
+                //newRegister();
+            });
+            document.querySelector('#itemList').addEventListener('click', (e)=> {
+                if (e.target.tagName === 'LI') {
+                    if (confirm('삭제하시겠습니까?'))
+                    e.target.remove();
+                }
+        });
+        });
+    </script>
+</head>
+<body>
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요</p>
+    <input type="text" id="subject" autofocus>
+    <button id="btn">추가</button>
+    <hr>
+    <ul id="itemList"></ul>
+</body>
+</html>
