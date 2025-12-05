@@ -10,15 +10,17 @@
             //비밀번호에 값이 입력됐는지 체크
             if ($('input[name="password"]').val() == ''){
                 alert('비밀번호를 입력해 주세요');
+                return false;
             }
             if ($('input[name="age"]').val() == '') {
                 alert('나이를 입력해 주세요');
+                return false;
             }
         }
     </script>
 </head>
 <body>
-    <form method="post" action="form.html" enctype="multipart/form-data">
+    <form method="post" action="form.html" onsubmit="return save()" enctype="multipart/form-data">
         아이디:<input type="text" name="id" value="a" maxlength="5" required autofocus disabled><br> <!--autofocus readonly를 입력하면 입력이나 수정을 못함, autofocus disabled는 비활성화-->
         비밀번호:<input type="password" name="password" placeholder="비밀번호를 입력해 주세요"><br>
         성별 :   <input type="radio" name="gender" value="남" id="gender1" checked><label for="gender1">남자 </label>
