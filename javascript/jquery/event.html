@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.btn').click(function(){
+                console.log(this);
+                // let name = this.innerText;
+                let name = $(this).text();
+                console.log(name);
+                alert(name);
+            });
+
+            $('.score').keyup(function() {
+                let sum = 0;
+                $('.score').each((i, e)=>{
+                    sum += Number(e.value);
+                });
+                $('#total').val(sum);
+                $('#avg').val(sum/3);
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <button class="btn">버튼1</button>
+    <button class="btn">버튼2</button>
+    <button class="btn">버튼3</button>
+    <button class="btn">버튼4</button>
+    <hr>
+    <!--국어/영어/수학 점수를 입력할 때마다 합계/평균 구해서 출력-->
+    <br>
+    국어 : <input type="text" id="kor" value="30"><br>
+    영어 : <input type="text"><br>
+    수학 : <input type="text"><br>
+    합계 : <input type="text"><br>
+    평균 : <input type="text"><br>
+</body>
+</html>
